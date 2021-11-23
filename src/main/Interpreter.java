@@ -77,7 +77,7 @@ public class Interpreter {
 			break;
 
 		case 0x30:
-			putInMem(iter.next());
+			put(iter.next());
 			break;
 
 		case 0x40:
@@ -141,7 +141,7 @@ public class Interpreter {
 	 * 
 	 * @param param The value to put into memory
 	 */
-	static void putInMem(byte param) {
+	static void put(byte param) {
 		mem = param;
 	}
 
