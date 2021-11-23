@@ -16,7 +16,7 @@ public class Precompiler {
 		File inFile = new File(name + ".arraycode");
 		File outFile = new File(destination + ".tmp");
 		
-		outFile.mkdirs();
+		outFile.getParentFile().mkdirs();
 		
 		Scanner in = new Scanner(inFile);
 		PrintWriter out = new PrintWriter(outFile);
