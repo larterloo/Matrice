@@ -77,6 +77,12 @@ public class Compiler {
 			case "add":
 				out.write(0x50);
 				break;
+				
+			case "sub":
+				// negate memory then add
+				out.write(0x51);
+				out.write(0x50);
+				break;
 
 			case "neg":
 				out.write(0x51);
