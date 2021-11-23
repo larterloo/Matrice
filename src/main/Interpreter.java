@@ -95,6 +95,10 @@ public class Interpreter {
 		case 0x60:
 			ifnull();
 			break;
+			
+		case 0x61:
+			ifpos();
+			break;
 		}
 	}
 
@@ -175,6 +179,16 @@ public class Interpreter {
 	static void ifnull() {
 		code = iter.next();
 		if (mem == 0) {
+			action();
+		}
+	}
+	
+	/**
+	 * If memort is positive and not zero, perform the next action, otherwise skip the action after
+	 */
+	static void ifpos() {
+		code = iter.next();
+		if (mem > 0) {
 			action();
 		}
 	}
