@@ -5,43 +5,15 @@ import java.io.FileOutputStream;
 import java.util.Scanner;
 
 public class Compiler {
-	
-	/**
-	 * Whether or not we're in comment mode 
-	 * (that is, ignoring code)
-	 */
-	static boolean skipping;
 
 	public static void main(String[] args) throws Exception {
-		Scanner in = new Scanner(new File("code.arraycode"));
+		Scanner in = new Scanner(new File("code.tmp"));
 
 		FileOutputStream out = new FileOutputStream(new File("code.array"));
-		
-		// initialise the array
-		out.write(0x00);
-		if (in.hasNext("init")) {
-			in.next();
-			out.write(Byte.parseByte(in.next()));
-		} else {
-			out.write(50);
-		}
-		
-		skipping = false;
 		
 		// go through all the code
 		while (in.hasNext()) {
 			String code = in.next();
-			
-			// toggle comment mode
-			if (code.equals("$")) {
-				skipping = !skipping;
-				continue;
-			}
-			
-			// skip if in comment mode
-			if (skipping) {
-				continue;
-			}
 			
 			switch (code) {
 			case "init":
@@ -77,27 +49,17 @@ public class Compiler {
 			case "add":
 				out.write(0x50);
 				break;
-				
-			case "sub":
-				// negate memory then add
-				out.write(0x51);
-				out.write(0x50);
-				break;
 
 			case "neg":
 				out.write(0x51);
 				break;
 				
-			case "if":
-				switch(in.next()) {
-				case "null":
-					out.write(0x60);
-					break;
-					
-				case "pos":
-					out.write(0x61);
-					break;
-				}
+			case "ifnull":
+				out.write(0x60);
+				break;
+				
+			case "ifpos":
+				out.write(0x61);
 				break;
 
 			default:
