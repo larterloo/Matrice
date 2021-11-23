@@ -8,13 +8,29 @@ import java.util.List;
 
 public class Interpreter {
 
+	/**
+	 * The array the represents the "tape"
+	 */
 	static byte[] array;
+	
+	/**
+	 * The current position of the "tape head"
+	 */
 	static int index = 0;
 
+	/**
+	 * What's currently in memory
+	 */
 	static byte mem;
 
+	/**
+	 * The current byte code instruction
+	 */
 	static byte code;
 	
+	/**
+	 * The iterator that iterates through the byte code
+	 */
 	static Iterator<Byte> iter;
 
 	public static void main(String[] args) throws Exception {

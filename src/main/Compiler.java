@@ -5,12 +5,19 @@ import java.io.FileOutputStream;
 import java.util.Scanner;
 
 public class Compiler {
+	
+	/**
+	 * Whether or not we're in comment mode 
+	 * (that is, ignoring code)
+	 */
+	static boolean skipping;
 
 	public static void main(String[] args) throws Exception {
 		Scanner in = new Scanner(new File("code.arraycode"));
 
 		FileOutputStream out = new FileOutputStream(new File("code.array"));
 		
+		// initialise the array
 		out.write(0x00);
 		if (in.hasNext("init")) {
 			in.next();
@@ -19,16 +26,19 @@ public class Compiler {
 			out.write(50);
 		}
 		
-		boolean skipping = false;
-
+		skipping = false;
+		
+		// go through all the code
 		while (in.hasNext()) {
 			String code = in.next();
 			
+			// toggle comment mode
 			if (code.equals("$")) {
 				skipping = !skipping;
 				continue;
 			}
 			
+			// skip if in comment mode
 			if (skipping) {
 				continue;
 			}
