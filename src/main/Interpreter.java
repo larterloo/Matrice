@@ -14,6 +14,8 @@ public class Interpreter {
 	static byte mem;
 
 	static byte code;
+	
+	static Iterator<Byte> iter;
 
 	public static void main(String[] args) throws Exception {
 		FileInputStream in = new FileInputStream(new File("code.array"));
@@ -23,51 +25,57 @@ public class Interpreter {
 		for (byte b : in.readAllBytes())
 			input.add(b);
 
-		Iterator<Byte> iter = input.iterator();
+		iter = input.iterator();
 
 		while (iter.hasNext()) {
 			code = iter.next();
-
-			switch (code) {
-			case 0x00:
-				init(iter.next());
-				break;
-
-			case 0x10:
-				left();
-				break;
-
-			case 0x11:
-				right();
-				break;
-
-			case 0x20:
-				write();
-				break;
-
-			case 0x21:
-				read();
-				break;
-
-			case 0x30:
-				putInMem(iter.next());
-				break;
-
-			case 0x40:
-				info();
-				break;
-
-			case 0x50:
-				add();
-				break;
-
-			case 0x51:
-				neg();
-				break;
-			}
+			action();
 		}
 
 		in.close();
+	}
+	
+	/**
+	 * Perform the byte code action currently stored in {@link #code}
+	 */
+	static void action() {
+		switch (code) {
+		case 0x00:
+			init(iter.next());
+			break;
+
+		case 0x10:
+			left();
+			break;
+
+		case 0x11:
+			right();
+			break;
+
+		case 0x20:
+			write();
+			break;
+
+		case 0x21:
+			read();
+			break;
+
+		case 0x30:
+			putInMem(iter.next());
+			break;
+
+		case 0x40:
+			info();
+			break;
+
+		case 0x50:
+			add();
+			break;
+
+		case 0x51:
+			neg();
+			break;
+		}
 	}
 
 	/**
