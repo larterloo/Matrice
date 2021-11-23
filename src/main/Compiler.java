@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class Compiler {
 
-	public static void main(String[] args) throws Exception {
-		Scanner in = new Scanner(new File("code.tmp"));
+	public static void compile(String name) throws Exception {
+		Scanner in = new Scanner(new File(name + "code.tmp"));
 
-		FileOutputStream out = new FileOutputStream(new File("code.array"));
+		FileOutputStream out = new FileOutputStream(new File(name + "code.array"));
 		
 		// go through all the code
 		while (in.hasNext()) {

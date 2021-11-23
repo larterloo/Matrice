@@ -33,8 +33,8 @@ public class Interpreter {
 	 */
 	static Iterator<Byte> iter;
 
-	public static void main(String[] args) throws Exception {
-		FileInputStream in = new FileInputStream(new File("code.array"));
+	public static void interpret(String name) throws Exception {
+		FileInputStream in = new FileInputStream(new File(name + "code.array"));
 
 		List<Byte> input = new ArrayList<>();
 
