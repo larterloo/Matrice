@@ -12,10 +12,14 @@ public class Precompiler {
 	 */
 	static boolean skipping;
 	
-	public static void precompile(String name) throws Exception {
-		Scanner in = new Scanner(new File(name + ".arraycode"));
-
-		PrintWriter out = new PrintWriter(new File(name + ".tmp"));
+	public static void precompile(String name, String destination) throws Exception {
+		File inFile = new File(name + ".arraycode");
+		File outFile = new File(destination + ".tmp");
+		
+		outFile.mkdirs();
+		
+		Scanner in = new Scanner(inFile);
+		PrintWriter out = new PrintWriter(outFile);
 		
 		// initialise the array
 		out.println("init");
@@ -78,6 +82,7 @@ public class Precompiler {
 			}
 		}
 		
+		in.close();
 		out.close();
 	}
 }

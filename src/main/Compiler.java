@@ -7,9 +7,11 @@ import java.util.Scanner;
 public class Compiler {
 
 	public static void compile(String name) throws Exception {
-		Scanner in = new Scanner(new File(name + ".tmp"));
-
-		FileOutputStream out = new FileOutputStream(new File(name + ".array"));
+		File inFile = new File(name + ".tmp");
+		File outFile = new File(name + ".array");
+		
+		Scanner in = new Scanner(inFile);
+		FileOutputStream out = new FileOutputStream(outFile);
 		
 		// go through all the code
 		while (in.hasNext()) {
@@ -68,6 +70,7 @@ public class Compiler {
 			}
 		}
 		
+		in.close();
 		out.close();
 	}
 
