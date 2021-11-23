@@ -49,43 +49,15 @@ public class Precompiler {
 				out.println(in.next());
 				break;
 
-			case "left":
-				out.println("left");
-				break;
-
-			case "right":
-				out.println("right");
-				break;
-
-			case "write":
-				out.println("write");
-				break;
-
-			case "read":
-				out.println("read");
-				break;
-
 			case "put":
 				out.println("put");
 				out.println(in.next());
-				break;
-
-			case "printInfo":
-				out.println("printInfo");
-				break;
-
-			case "add":
-				out.println("add");
 				break;
 				
 			case "sub":
 				// negate memory then add
 				out.println("neg");
 				out.println("add");
-				break;
-
-			case "neg":
-				out.println("neg");
 				break;
 				
 			case "if":
@@ -99,10 +71,10 @@ public class Precompiler {
 					break;
 				}
 				break;
-
+				
+			// this instruction is just a standard matric assembly instruction
 			default:
-				System.out.println("Unknown function: " + code);
-				System.exit(-1);
+				out.println(code);
 			}
 		}
 	}
