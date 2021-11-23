@@ -82,12 +82,16 @@ public class Compiler {
 				out.write(0x51);
 				break;
 				
-			case "ifnull":
-				out.write(0x60);
-				break;
-				
-			case "ifpos":
-				out.write(0x61);
+			case "if":
+				switch(in.next()) {
+				case "null":
+					out.write(0x60);
+					break;
+					
+				case "pos":
+					out.write(0x61);
+					break;
+				}
 				break;
 
 			default:
