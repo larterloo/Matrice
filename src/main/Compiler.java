@@ -21,6 +21,10 @@ public class Compiler {
 
 		while (in.hasNext()) {
 			String code = in.next();
+			
+			if (in.hasNext("//")) {
+				continue;
+			}
 
 			switch (code) {
 			case "init":
