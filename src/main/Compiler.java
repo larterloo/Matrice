@@ -10,6 +10,13 @@ public class Compiler {
 		Scanner in = new Scanner(new File("code.arraycode"));
 
 		FileOutputStream out = new FileOutputStream(new File("code.array"));
+		
+		out.write(0x00);
+		if (in.hasNext("init")) {
+			out.write(Byte.parseByte(in.next()));
+		} else {
+			out.write(50);
+		}
 
 		while (in.hasNext()) {
 			String code = in.next();
