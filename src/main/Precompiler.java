@@ -77,5 +77,7 @@ public class Precompiler {
 				out.println(code);
 			}
 		}
+		
+		out.close();
 	}
 }
