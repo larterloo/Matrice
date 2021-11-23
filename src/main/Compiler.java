@@ -67,6 +67,8 @@ public class Compiler {
 				System.exit(-1);
 			}
 		}
+		
+		out.close();
 	}
 
 }
