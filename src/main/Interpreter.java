@@ -134,6 +134,7 @@ public class Interpreter {
 	 */
 	static void info() {
 		System.out.println("Array Size: " + array.length + ", Index: " + index + ", Memory: " + mem);
+		System.out.println(ArrayToString.arrayToString(array));
 	}
 
 	/**
