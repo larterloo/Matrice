@@ -13,6 +13,7 @@ public class Compiler {
 		
 		out.write(0x00);
 		if (in.hasNext("init")) {
+			in.next();
 			out.write(Byte.parseByte(in.next()));
 		} else {
 			out.write(50);
