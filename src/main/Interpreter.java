@@ -157,8 +157,8 @@ public class Interpreter {
 	 * If memory is null, perform the next action, otherwise skip to the action after
 	 */
 	static void ifnull() {
+		code = iter.next();
 		if (mem == 0) {
-			code = iter.next();
 			action();
 		}
 	}
