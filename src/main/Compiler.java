@@ -49,7 +49,7 @@ public class Compiler {
 				out.write(0x50);
 				break;
 
-			case "sub":
+			case "neg":
 				out.write(0x51);
 				break;
 

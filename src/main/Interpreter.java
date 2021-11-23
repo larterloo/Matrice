@@ -62,7 +62,7 @@ public class Interpreter {
 				break;
 
 			case 0x51:
-				sub();
+				neg();
 				break;
 			}
 		}
@@ -132,13 +132,11 @@ public class Interpreter {
 	static void add() {
 		mem += array[index];
 	}
-
+	
 	/**
-	 * Subtract the value at the current index from the value in memory
-	 * <p>
-	 * The result is stored in memory
+	 * Multiply the current memory by -1
 	 */
-	static void sub() {
-		mem -= array[index];
+	static void neg() {
+		mem *= -1;
 	}
 }
