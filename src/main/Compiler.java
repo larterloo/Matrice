@@ -18,14 +18,21 @@ public class Compiler {
 		} else {
 			out.write(50);
 		}
+		
+		boolean skipping = false;
 
 		while (in.hasNext()) {
 			String code = in.next();
 			
-			if (in.hasNext("//")) {
+			if (code.equals("$")) {
+				skipping = !skipping;
 				continue;
 			}
-
+			
+			if (skipping) {
+				continue;
+			}
+			
 			switch (code) {
 			case "init":
 				out.write(0x00);
