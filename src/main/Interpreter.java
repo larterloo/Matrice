@@ -34,7 +34,7 @@ public class Interpreter {
 	static Iterator<Byte> iter;
 
 	public static void interpret(String name) throws Exception {
-		FileInputStream in = new FileInputStream(new File(name + "code.array"));
+		FileInputStream in = new FileInputStream(new File(name + ".array"));
 
 		List<Byte> input = new ArrayList<>();
 

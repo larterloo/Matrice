@@ -15,7 +15,7 @@ public class Precompiler {
 	public static void precompile(String name) throws Exception {
 		Scanner in = new Scanner(new File(name + ".arraycode"));
 
-		PrintWriter out = new PrintWriter(new File(name + "code.tmp"));
+		PrintWriter out = new PrintWriter(new File(name + ".tmp"));
 		
 		// initialise the array
 		out.println("init");

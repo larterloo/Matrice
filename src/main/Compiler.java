@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class Compiler {
 
 	public static void compile(String name) throws Exception {
-		Scanner in = new Scanner(new File(name + "code.tmp"));
+		Scanner in = new Scanner(new File(name + ".tmp"));
 
-		FileOutputStream out = new FileOutputStream(new File(name + "code.array"));
+		FileOutputStream out = new FileOutputStream(new File(name + ".array"));
 		
 		// go through all the code
 		while (in.hasNext()) {
