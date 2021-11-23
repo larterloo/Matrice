@@ -75,6 +75,10 @@ public class Interpreter {
 		case 0x51:
 			neg();
 			break;
+			
+		case 0x60:
+			ifnull();
+			break;
 		}
 	}
 
@@ -146,5 +150,15 @@ public class Interpreter {
 	 */
 	static void neg() {
 		mem *= -1;
+	}
+	
+	/**
+	 * If memory is null, perform the next action, otherwise skip to the action after
+	 */
+	static void ifnull() {
+		if (mem == 0) {
+			code = iter.next();
+			action();
+		}
 	}
 }

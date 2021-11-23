@@ -52,6 +52,10 @@ public class Compiler {
 			case "neg":
 				out.write(0x51);
 				break;
+				
+			case "ifnull":
+				out.write(0x60);
+				break;
 
 			default:
 				System.out.println("Unknown function: " + code);
